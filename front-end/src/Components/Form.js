@@ -7,9 +7,9 @@ const formSchema = yup.object().shape({
   email: yup
     .string()
     .required("Don't forget your email!")
-    .email("Don't forget your email!"),
+    .email("Email must be complete!"),
   password: yup.string().required("What's the secret password?"),
-  year: yup.date().required("Please Enter A Valid Year"),
+  year: yup.date().required("Please Enter a Valid Year"),
 });
 
 export default function Form() {
@@ -117,7 +117,7 @@ export default function Form() {
             onChange={inputChange}
           />
           {errorState.password.length > 0 ? (
-            <p className="error">{errorState.password}</p>
+            <p className="error">{errorState.year}</p>
           ) : null}
         </label>
 
