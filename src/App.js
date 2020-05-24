@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
+import Form from "./Components/Form";
 
 // import MainPage from "./components/MainPage";
 import WelcomePage from "./Components/WelcomePage";
@@ -118,12 +119,12 @@ function App() {
     <div className="App">
       <Switch>
         <Route path="/sleep-data">
-          <SleepGraph dummyData={dummyData}/>
+          <SleepGraph dummyData={dummyData} />
         </Route>
         <Route exact path="/signout" component={Signout} />
         <Route exact path="/forgot" component={ForgotPassword} />
         <Route exact path="/signin" component={Signin} />
-        <Route exact path="/register" component={Register} />
+        <Route exact path="/register" component={Form} />
         <Route exact path="/" component={WelcomePage} />
       </Switch>
 
