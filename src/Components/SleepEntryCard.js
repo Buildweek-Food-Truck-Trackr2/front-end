@@ -9,7 +9,7 @@ const SleepEntryCard = ({entry}) => {
     <Col>
       <br />
       <Card>
-        <CardBody style={{backgroundColor: 'black', textAlign: 'left', color:'white'}}>
+        <CardBody style={{backgroundColor: 'black', textAlign: 'left', color:'white', fontSize:"3em"}}>
           <CardText> {entry.date} {entry.sleep_start} - {entry.sleep_end}</CardText>
           <CardText> {entry.sleep_minutes}</CardText>
         </CardBody>

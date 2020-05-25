@@ -6,6 +6,12 @@ html {
   font-family: sans-serif;
   text-align : center;
   color      : white;
+  background-color: black;
+
+}
+
+body > #root > div {
+  height: 100vh;
 }
 
 .user {
@@ -14,12 +20,14 @@ html {
   text-align: center; */
   color     : white;
   box-shadow: 10 10px 10px rgba(0, 0, 0, 0.1);
+  height: 100%;
+
 }
 
-body {
+/* body {
   background-color: rgb(55, 56, 56);
   background-image: linear-gradient(to right, #303131, rgb(14, 13, 13));
-}
+} */
 
 form {
   display       : flex;

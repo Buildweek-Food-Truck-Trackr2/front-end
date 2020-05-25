@@ -3,15 +3,17 @@ import { Container, Row } from "reactstrap";
 import SleepEntryCard from "./SleepEntryCard";
 import EditEntry from "./EditEntry";
 import {Link} from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 const SleepEntryList = ({ entries , editEntries}) => {
   // // const [entries, setEntries] = useState(mockSleepEntries)
  
 
   return (
-    <Container style={{height: '100vh'}}>
+    <Container fluid>
       {entries.map((entry, index) => (
-        <Row >
+        <Row xs="1">
           <Link to= {"/editentry"}>
             <SleepEntryCard key={index} entry={entry} />
           </Link>

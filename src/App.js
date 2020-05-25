@@ -5,6 +5,9 @@ import SleepEntryHomePage from "./Components/SleepEntryHomePage";
 import EditEntry from "./Components/EditEntry";
 import SleepEntry from "./Components/SleepEntry";
 import "./App.css";
+import WelcomePage from "./Components/WelcomePage";
+import Footer from "./Components/Footer";
+import Header from "./Components/Header";
 
 // state data for sleep graph
 const fakeRes = {
@@ -91,21 +94,27 @@ const fakeRes = {
   ],
 };
 
-
 function App() {
   return (
     <div className="App">
+      <Header/>
+
       <Switch>
         {/* <Route exact path="/register" component={Form} /> */}
-        <Route path="/sleep-entry-homepage" component={SleepEntryHomePage} />
-        {/* <Route exact path="/editentry" component={EditEntry} /> */}
+        <Route exact path="/register" component={Form} />
+        <Route exact path="/homepage" component={SleepEntryHomePage} />
+        <Route exact path="/editentry" component={EditEntry} />
+
+        <Route path="/" component={WelcomePage} />
+        {/* <Route exact path="/sleep-entry-homepage" component={SleepEntryHomePage} /> */}
         {/* <Route exact path="/sleepentry" component={SleepEntry} /> */}
       </Switch>
 
       {/* <PrivateRoute exact path="/my" component={MainPage} />
-        
-
         <PrivateRoute path="/my/list" component={ListItem} /> */}
+
+
+        {/* <Footer/> */}
     </div>
   );
 }
