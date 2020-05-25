@@ -17,7 +17,6 @@ export default function Signin(props) {
       .then((response) => {
         console.log("response: ", response);
         setLoads(false);
-        // props.history.push("/my");
       })
       .catch((err) => console.log("Error: ", err));
   };
