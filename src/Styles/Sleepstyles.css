@@ -1,0 +1,21 @@
+.main {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.left-col{
+  flex: 50%;
+  align-content: center;
+}
+
+.right-col{
+  flex: 50%;
+}
+
+.entry {
+  background-color: black;
+  color: white;
+}
+

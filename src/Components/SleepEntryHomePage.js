@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SleepEntryList from "./SleepEntryList";
 import SleepGraph from "./SleepGraph";
+import Sleepstyles from "../Styles/Sleepstyles.css";
 
 
 const mockSleepEntries = [
