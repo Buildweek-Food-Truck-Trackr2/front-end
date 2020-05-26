@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Form from "./Components/Form";
 import SleepEntryHomePage from "./Components/SleepEntryHomePage";
 import EditEntry from "./Components/EditEntry";
-import SleepEntry from "./Components/SleepEntry";
+import AddSleepEntry from "./Components/AddSleepEntry";
 import "./App.css";
 import WelcomePage from "./Components/WelcomePage";
 import Footer from "./Components/Footer";

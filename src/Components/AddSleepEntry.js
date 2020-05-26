@@ -15,7 +15,7 @@ const initialEntry = {
 
 };
 
-const SleepEntry = (props) => {
+const AddSleepEntry = (props) => {
  
   const [entry, setEntry] = useState(initialEntry);
   const history = useHistory();
@@ -105,4 +105,4 @@ const SleepEntry = (props) => {
     );
 }
 
-export default SleepEntry; 
+export default AddSleepEntry; 

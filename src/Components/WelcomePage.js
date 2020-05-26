@@ -2,10 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "../Styles/WelcomePageStyles.css";
 import { useHistory } from "react-router-dom";
-import photo1 from "../Pics/photo-1.jfif";
-import photo2 from "../Pics/photo-2.jfif";
-import photo3 from "../Pics/photo-3.jfif";
-import photo4 from "../Pics/photo-4.jfif";
+import photo1 from "../Pics/photo-1.png";
+import photo2 from "../Pics/photo-2.png";
+import photo3 from "../Pics/photo-3.png";
+import photo4 from "../Pics/photo-4.png";
 
 const WelcomePage = () => {
   const history = useHistory();

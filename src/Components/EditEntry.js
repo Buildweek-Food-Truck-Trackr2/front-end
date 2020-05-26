@@ -126,7 +126,7 @@ const EditEntry = (props) => {
           type="text"
           name="moodbeforesleep"
           onChange={changeHandler}
-          placeholder="name"
+          placeholder="mood"
           value={entry.moodBeforeSleep}
         />
        
@@ -134,7 +134,7 @@ const EditEntry = (props) => {
           type="text"
           name="moodaftersleep"
           onChange={changeHandler}
-          placeholder="name"
+          placeholder="mood"
           value={entry.moodAfterSleep}
         />
        
@@ -142,7 +142,7 @@ const EditEntry = (props) => {
           type="text"
           name="sleep_score"
           onChange={changeHandler}
-          placeholder="name"
+          placeholder="sleepscore"
           value={entry.sleepScore}
         />
        
