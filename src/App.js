@@ -104,6 +104,7 @@ function App() {
         <Route exact path="/register" component={Form} />
         <Route exact path="/homepage" component={SleepEntryHomePage} />
         <Route exact path="/editentry" component={EditEntry} />
+        <Route exact path="/addentry" component={AddSleepEntry} />
 
         <Route path="/" component={WelcomePage} />
         {/* <Route exact path="/sleep-entry-homepage" component={SleepEntryHomePage} /> */}
