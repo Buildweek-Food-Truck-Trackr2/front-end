@@ -4,66 +4,57 @@ html {
 
 .App {
   font-family: sans-serif;
-  text-align : center;
-  color      : white;
+  text-align: center;
+  color: white;
   background-color: black;
-
 }
 
 body > #root > div {
   height: 100vh;
 }
 
-
-
 .user {
   /* font-size: 2rem;
   font-family: sans-serif;
   text-align: center; */
-  color     : white;
+  color: white;
   box-shadow: 10 10px 10px rgba(0, 0, 0, 0.1);
   height: 100%;
-
 }
 
-/* body {
-  background-color: rgb(55, 56, 56);
-  background-image: linear-gradient(to right, #303131, rgb(14, 13, 13));
-} */
-
 form {
-  display       : flex;
+  display: flex;
   flex-direction: column;
-  width         : 90%;
-  max-width     : 300px;
-  margin        : 0 auto;
+  width: 90%;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 label {
-  display          : flex;
+  display: flex;
   /* flex-direction: column; */
-  align-items      : flex-start;
-  margin           : 10px 0;
-  font-size        : 1.4rem;
+  align-items: flex-start;
+  margin: 10px 0;
+  font-size: 1.4rem;
 }
 
 input,
 textarea {
-  width           : 100%;
-  margin          : 5px 0 0;
-  display         : block;
-  width           : 100%;
-  border          : 2px solid rgba(0, 0, 0, 0.2);
-  border-radius   : 5px;
-  padding         : 10px;
-  transition      : all 0.3s;
-  font-size       : 1.4rem;
-  letter-spacing  : 0.5px;
+  width: 100%;
+  margin: 5px 0 0;
+  display: block;
+  width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 10px;
+  transition: all 0.3s;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
   background-color: white;
 }
 
 input:focus {
-  outline     : none;
+  outline: none;
   border-color: #fdfafd;
 }
 
@@ -73,51 +64,51 @@ input:placeholder {
 
 .Navigation,
 a {
-  color          : white;
-  text-align     : center;
-  padding        : 14px 16px;
-  font-size      : 17px;
-  display        : flex;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 17px;
+  display: flex;
   justify-content: center;
 }
 
 button {
-  width           : 150px;
-  display         : inline-block;
-  padding         : 8px 11px;
-  font-size       : 1.2rem;
-  text-transform  : uppercase;
-  border          : 0;
-  border-radius   : 5px;
-  letter-spacing  : 2px;
-  outline         : none;
+  width: 150px;
+  display: inline-block;
+  padding: 8px 11px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 5px;
+  letter-spacing: 2px;
+  outline: none;
   background-color: rgb(11, 12, 12);
 
-  color     : #fff;
-  cursor    : pointer;
+  color: #fff;
+  cursor: pointer;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
   background-image: none;
   background-color: #7fa5af;
-  box-shadow      : 0 5px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
 }
 
 button:disabled {
   background-image: none;
   background-color: white;
-  border          : 1px solid rgba(0, 0, 0, 0.1);
-  color           : rgba(0, 0, 0, 0.1);
-  cursor          : not-allowed;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.1);
+  cursor: not-allowed;
 }
 
 .error {
   font-size: 1.2rem;
-  color    : red;
+  color: red;
 }
 
 .terms {
-  display   : inline-block;
+  display: inline-block;
   align-self: self-start;
 }

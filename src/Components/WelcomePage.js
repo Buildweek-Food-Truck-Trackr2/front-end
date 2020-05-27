@@ -23,7 +23,7 @@ const WelcomePage = () => {
             individual needs.
           </p>
           <div className="button">
-            <button onClick={() => history.push("/register")}>Sign In</button>
+            <button onClick={() => history.push("/login")}>Sign In</button>
             <button onClick={() => history.push("/register")}>Sign Up</button>
           </div>
         </div>

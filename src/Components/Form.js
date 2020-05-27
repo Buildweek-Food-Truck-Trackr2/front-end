@@ -22,7 +22,6 @@ export default function Form() {
     year: "",
   });
   const validate = (event) => {
-    
     yup
       .reach(formSchema, event.target.name)
       .validate(event.target.value)
@@ -51,7 +50,7 @@ export default function Form() {
   };
   const formSubmit = (event) => {
     event.preventDefault();
-    console.log(event)
+    console.log(event);
     axios
       .post("https://bw.stvsu.com", formState)
       .then((response) => {
