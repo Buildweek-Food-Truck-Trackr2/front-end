@@ -51,7 +51,7 @@ export default function Form() {
   const formSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("https://reqres.in/api/users", formState)
+      .post("https://bw.stvsu.com", formState)
       .then((response) => {
         setPost([]);
         setUsers([...users, response.data]);
