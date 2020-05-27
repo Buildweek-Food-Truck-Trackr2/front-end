@@ -58,7 +58,7 @@ export default function Form() {
       .post("https://bw.stvsu.com/auth/register", formState)
       .then((response) => {
         console.log(response.status)
-        history.push("/editentry")
+        history.push("/login")
       })
       .catch((err) => console.log(err.response));
   };

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import SleepEntryList from "./SleepEntryList";
-import axios from "axios";
+import AxiosWithAuth from "./AxiosWithAuth";
+
 
 const initialEntry = {
     start_date: "",
@@ -19,6 +20,15 @@ const AddSleepEntry = (props) => {
  
   const [entry, setEntry] = useState(initialEntry);
   const history = useHistory();
+
+  useEffect(() => {
+    AxiosWithAuth()
+      .post("https://bw.stvsu.com/api/entries", entry)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err.message));
+  }, []);
  
   const changeHandler = (ev) => {
     ev.persist();

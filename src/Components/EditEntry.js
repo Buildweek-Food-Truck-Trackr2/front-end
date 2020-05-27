@@ -4,26 +4,23 @@ import SleepEntryList from "./SleepEntryList";
 import axios from "axios";
 
 const initialEntry = {
-  // entry_id: "",
-  //   date: "",
-  //   sleep_start: "",
-  //   sleep_end: "",
-  //   sleep_minutes: "",
-  //   moodBeforeSleep: "",
-  //   moodAfterSleep: "",
-  //   sleepScore: "",
-  //   user_id: "",
-
-    start_date:"2020-04-21",
-    end_date:"2020-04-22 ",
-    sleep_start: " 8:15:00.000",
-    sleep_end: "07:15:00.000",
-    moodBeforeSleep: 2,
-    moodAfterSleep: 2,
-    sleepScore: null,
-    entry_id: 1,
-   
-};
+      date: '', 
+      sleep_start: '',
+      sleep_end: '',
+      sleep_score_morning: '',
+      sleep_score_day: '',
+      sleep_score_night: '',
+      user_id: ''
+    }
+    // start_date:"2020-04-21",
+    // end_date:"2020-04-22 ",
+    // sleep_start: " 8:15:00.000",
+    // sleep_end: "07:15:00.000",
+    // moodBeforeSleep: 2,
+    // moodAfterSleep: 2,
+    // sleepScore: null,
+    // entry_id: 1,
+  
 
 const EditEntry = (props) => {
   //const { push } = useHistory();
@@ -32,6 +29,7 @@ const EditEntry = (props) => {
 
   console.log(entry);
   const { id } = useParams();
+
   useEffect(() => {
     axios
       .get(`GET URL`)
@@ -67,6 +65,17 @@ const EditEntry = (props) => {
       //     push("/sleep-entry-homepage");
       //   })
       //   .catch(err => console.log(err));
+
+      useEffect(() => {
+        AxiosWithAuth()
+          .put("https://bw.stvsu.com/api/entries/:id", entry)
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => console.log(err.message));
+      }, []);
+  };
+
   };
 
   const deleteEntry = (e) => {
@@ -89,7 +98,7 @@ const EditEntry = (props) => {
         <h1>Sleep Start</h1>
         <input
           type="date"
-          name="start_date"
+          name="date"
           onChange={changeHandler}
           placeholder="date"
           value={entry.date}
@@ -103,16 +112,6 @@ const EditEntry = (props) => {
           value={entry.sleep_start}
         />
        
-       <h1>Sleep End</h1>
-
-        <input
-          type="date"
-          name="end_date"
-          onChange={changeHandler}
-          placeholder="date"
-          value={entry.date}
-        />
-       
 
         <input
           type="time"
@@ -124,28 +123,35 @@ const EditEntry = (props) => {
        
         <input
           type="text"
-          name="moodbeforesleep"
+          name="sleep_score_morning"
           onChange={changeHandler}
           placeholder="mood"
-          value={entry.moodBeforeSleep}
+          value={entry.sleep_score_morning}
         />
        
         <input
           type="text"
-          name="moodaftersleep"
+          name="sleep_score_day"
           onChange={changeHandler}
           placeholder="mood"
-          value={entry.moodAfterSleep}
+          value={entry.sleep_score_day}
         />
        
         <input
           type="text"
-          name="sleep_score"
+          name="sleep_score_night"
           onChange={changeHandler}
           placeholder="sleepscore"
-          value={entry.sleepScore}
+          value={entry.sleep_score_night}
         />
        
+       <input
+          type="text"
+          name="user_id"
+          onChange={changeHandler}
+          placeholder="userId"
+          value={entry.user_id}
+        />
 
         <button type="submit">Save</button>
 
