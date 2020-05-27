@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as yup from "yup";
 import axios from "axios";
+import {useHistory} from 'react-router-dom';
 
 const formSchema = yup.object().shape({
   name: yup.string().required("Oops, you forgot your own name!"),
@@ -9,7 +10,7 @@ const formSchema = yup.object().shape({
     .required("Don't forget your email!")
     .email("Email must be complete!"),
   password: yup.string().required("What's the secret password?"),
-  year: yup.date().required("Please Enter a Valid Year"),
+  year_of_birth: yup.date().required("Please Enter a Valid year_of_birth"),
 });
 export default function Form() {
   const [users, setUsers] = useState([]);
@@ -19,8 +20,9 @@ export default function Form() {
     name: "",
     email: "",
     password: "",
-    year: "",
+    year_of_birth: "",
   });
+  const history = useHistory();
   const validate = (event) => {
     
     yup
@@ -53,10 +55,10 @@ export default function Form() {
     event.preventDefault();
     console.log(event)
     axios
-      .post("https://reqres.in/api/users", formState)
+      .post("https://bw.stvsu.com/auth/register", formState)
       .then((response) => {
-        setPost([]);
-        setUsers([...users, response.data]);
+        console.log(response.status)
+        history.push("/editentry")
       })
       .catch((err) => console.log(err.response));
   };
@@ -102,17 +104,17 @@ export default function Form() {
             <p className="error">{errorState.password}</p>
           ) : null}
         </label>
-        <label htmlFor="year">
+        <label htmlFor="year_of_birth">
           <input
             type="text"
             placeholder="Enter Year Of Birth"
-            name="year"
-            id="year"
-            value={formState.year}
+            name="year_of_birth"
+            id="year_of_birth"
+            value={formState.year_of_birth}
             onChange={inputChange}
           />
-          {errorState.year.length > 0 ? (
-            <p className="error">{errorState.year}</p>
+          {errorState.year_of_birth.length > 0 ? (
+            <p className="error">{errorState.year_of_birth}</p>
           ) : null}
         </label>
         <button>Submit</button>
