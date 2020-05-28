@@ -9,6 +9,7 @@ import WelcomePage from "./Components/WelcomePage";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Login from "./Components/modals/Login";
+
 // state data for sleep graph
 const fakeRes = {
   id: 1,
@@ -107,6 +108,7 @@ function App() {
         <Route exact path="/addentry" component={AddSleepEntry} />
         <Route exact path="/login" component={Login} />
         <Route path="/" component={WelcomePage} />
+
         {/* <Route exact path="/sleep-entry-homepage" component={SleepEntryHomePage} /> */}
         {/* <Route exact path="/sleepentry" component={SleepEntry} /> */}
       </Switch>

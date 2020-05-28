@@ -2,14 +2,57 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import SleepEntryList from "./SleepEntryList";
 import axios from "axios";
-import UsersList from "./modals/UsersList";
 
-// const initialEntry = {
+// // const initialEntry = {
 
+// // };
+
+// const AddSleepEntry = (props) => {
+//   const [entry, setEntry] = useState([
+//     {
+//       start_date: "",
+//       end_date: "",
+//       sleep_start: "",
+//       sleep_end: "",
+//       moodBeforeSleep: "",
+//       moodAfterSleep: "",
+//       sleepScore: "",
+//       entry_id: "",
+//     },
+//   ]);
+//   const history = useHistory();
+
+//   const changeHandler = (ev) => {
+//     ev.persist();
+
+//     console.log(ev.target);
+
+//     setEntry({
+//       ...entry,
+//       [ev.target.name]: ev.target.value,
+//     });
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     axios
+//       .post("https://bw.stvsu.com", entry)
+//       .then((response) => {
+//       })
+//       .catch((err) => console.log(err.response));
+//   };
+
+//         <button type="submit">Save</button>
+//         {post.length > 0 ? <pre>{JSON.stringify(post, null, 2)}</pre> : null}
+//         <UsersList users={users} />
+//       </form>
+//     </div>
+//   );
 // };
 
-const AddSleepEntry = (props) => {
-  const [users, setUsers] = useState([]);
+// export default AddSleepEntry;
+
+export default function AddSleepEntry() {
   const [entry, setEntry] = useState([
     {
       start_date: "",
@@ -22,23 +65,23 @@ const AddSleepEntry = (props) => {
       entry_id: "",
     },
   ]);
+
   const history = useHistory();
-
-  const changeHandler = (ev) => {
-    ev.persist();
-    let value = ev.target.value;
-
-    console.log(ev.target);
-
+  const changeHandler = (event) => {
+    event.persist();
+    let value = event.target.value;
     setEntry({
       ...entry,
-      [ev.target.name]: value,
+      [event.target.name]: value,
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(entry);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .post("https://bw.stvsu.com", entry)
+      .then((response) => {})
+      .catch((err) => console.log(err.response));
   };
 
   return (
@@ -48,6 +91,7 @@ const AddSleepEntry = (props) => {
         <input
           type="date"
           name="start_date"
+          id="start_date"
           onChange={changeHandler}
           placeholder="date"
           value={entry.date}
@@ -65,6 +109,7 @@ const AddSleepEntry = (props) => {
         <input
           type="date"
           name="end_date"
+          id="end_date"
           onChange={changeHandler}
           placeholder="date"
           value={entry.date}
@@ -73,39 +118,38 @@ const AddSleepEntry = (props) => {
         <input
           type="time"
           name="sleep_end"
+          id="sleep_end"
           onChange={changeHandler}
           placeholder="end time"
           value={entry.sleep_end}
         />
 
-        <input
-          type="textarea"
+        <textarea
           name="moodbeforesleep"
+          id="moodbeforesleep"
           onChange={changeHandler}
           placeholder="Mood Before Bed"
           value={entry.moodBeforeSleep}
         />
 
-        <input
-          type="textarea"
+        <textarea
           name="moodaftersleep"
+          id="moodaftersleep"
           onChange={changeHandler}
           placeholder="Mood Upon Waking"
           value={entry.moodAfterSleep}
         />
 
-        <input
-          type="textarea"
+        <textarea
           name="sleep_score"
+          id="sleep_score"
           onChange={changeHandler}
           placeholder="Sleep Score"
           value={entry.sleepScore}
         />
 
-        <button type="submit">Save</button>
+        <button>Submit</button>
       </form>
     </div>
   );
-};
-
-export default AddSleepEntry;
+}
