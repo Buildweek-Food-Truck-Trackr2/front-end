@@ -8,6 +8,8 @@ import "./App.css";
 import WelcomePage from "./Components/WelcomePage";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
+import Signin from "./Components/SignIn";
+import PrivateRoute from "./Components/PrivateRoute";
 
 // state data for sleep graph
 const fakeRes = {
@@ -101,14 +103,16 @@ function App() {
 
       <Switch>
         {/* <Route exact path="/register" component={Form} /> */}
+        
+        <PrivateRoute path="/homepage" component={SleepEntryHomePage} />
+       
+        <PrivateRoute exact path="/addentry" component={AddSleepEntry} />
+        <PrivateRoute path="/editentry/:id" component={EditEntry} />
         <Route exact path="/register" component={Form} />
-        <Route exact path="/homepage" component={SleepEntryHomePage} />
-        <Route exact path="/editentry" component={EditEntry} />
-        <Route exact path="/addentry" component={AddSleepEntry} />
+        <Route exact path="/login" component={Signin} />
 
         <Route path="/" component={WelcomePage} />
-        {/* <Route exact path="/sleep-entry-homepage" component={SleepEntryHomePage} /> */}
-        {/* <Route exact path="/sleepentry" component={SleepEntry} /> */}
+       
       </Switch>
 
       {/* <PrivateRoute exact path="/my" component={MainPage} />
