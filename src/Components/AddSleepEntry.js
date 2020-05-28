@@ -5,14 +5,12 @@ import AxiosWithAuth from "./AxiosWithAuth";
 
 
 const initialEntry = {
-    start_date: "",
-    end_date:"",
-    sleep_start: "",
-    sleep_end: "",
-    moodBeforeSleep: "",
-    moodAfterSleep: "",
-    sleepScore: "",
-    entry_id: "",
+  date: '', 
+  sleep_start: '',
+  sleep_end: '',
+  sleep_score_morning: '',
+  sleep_score_day: '',
+  sleep_score_night: '',
 
 };
 
@@ -25,7 +23,9 @@ const AddSleepEntry = (props) => {
     AxiosWithAuth()
       .post("https://bw.stvsu.com/api/entries", entry)
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
+        console.log(res.status);
+
       })
       .catch((err) => console.log(err.message));
   }, []);
@@ -46,20 +46,32 @@ const AddSleepEntry = (props) => {
     const handleSubmit = (e) => {
       e.preventDefault();
       console.log(entry);
+      
+      AxiosWithAuth()
+      .post("https://bw.stvsu.com/api/entries", entry)
+      .then((res) => {
+        console.log(res.data);
+        console.log(res.status);
+        history.push('/homepage')
+
+      })
+      .catch((err) => console.log(err.message));
     };
 
     return (
       <div>
-        <h2>Add Sleep</h2>
+        <h2>Edit Entry</h2>
         <form onSubmit={handleSubmit}>
+  
+          <h1>Sleep Start</h1>
           <input
             type="date"
-            name="start_date"
+            name="date"
             onChange={changeHandler}
             placeholder="date"
             value={entry.date}
           />
-          
+         
           <input
             type="time"
             name="sleep_start"
@@ -67,16 +79,8 @@ const AddSleepEntry = (props) => {
             placeholder="start time"
             value={entry.sleep_start}
           />
-       
+         
   
-          <input
-            type="date"
-            name="end_date"
-            onChange={changeHandler}
-            placeholder="date"
-            value={entry.date}
-          />
-          
           <input
             type="time"
             name="sleep_end"
@@ -84,35 +88,37 @@ const AddSleepEntry = (props) => {
             placeholder="end time"
             value={entry.sleep_end}
           />
-
+         
           <input
             type="text"
-            name="moodbeforesleep"
+            name="sleep_score_morning"
             onChange={changeHandler}
-            placeholder="name"
-            value={entry.moodBeforeSleep}
+            placeholder="mood"
+            value={entry.sleep_score_morning}
           />
          
           <input
             type="text"
-            name="moodaftersleep"
+            name="sleep_score_day"
             onChange={changeHandler}
-            placeholder="name"
-            value={entry.moodAfterSleep}
+            placeholder="mood"
+            value={entry.sleep_score_day}
           />
          
           <input
             type="text"
-            name="sleep_score"
+            name="sleep_score_night"
             onChange={changeHandler}
-            placeholder="name"
-            value={entry.sleepScore}
+            placeholder="sleepscore"
+            value={entry.sleep_score_night}
           />
   
           <button type="submit">Save</button>
+  
         </form>
       </div>
     );
-}
-
-export default AddSleepEntry; 
+    };
+  
+  export default AddSleepEntry;
+  

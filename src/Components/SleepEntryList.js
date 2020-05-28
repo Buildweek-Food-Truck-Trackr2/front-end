@@ -14,7 +14,7 @@ const SleepEntryList = ({ entries , editEntries}) => {
     <Container fluid>
       {entries.map((entry, index) => (
         <Row xs="1">
-          <Link to= {"/editentry"}>
+          <Link to= {`/editentry/${entry.id}`}>
             <SleepEntryCard key={index} entry={entry} />
           </Link>
         </Row>

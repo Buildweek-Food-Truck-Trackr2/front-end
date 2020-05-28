@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import SleepEntryList from "./SleepEntryList";
 import axios from "axios";
+import AxiosWithAuth from "./AxiosWithAuth";
 
 const initialEntry = {
       date: '', 
@@ -10,17 +11,7 @@ const initialEntry = {
       sleep_score_morning: '',
       sleep_score_day: '',
       sleep_score_night: '',
-      user_id: ''
     }
-    // start_date:"2020-04-21",
-    // end_date:"2020-04-22 ",
-    // sleep_start: " 8:15:00.000",
-    // sleep_end: "07:15:00.000",
-    // moodBeforeSleep: 2,
-    // moodAfterSleep: 2,
-    // sleepScore: null,
-    // entry_id: 1,
-  
 
 const EditEntry = (props) => {
   //const { push } = useHistory();
@@ -31,11 +22,12 @@ const EditEntry = (props) => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios
-      .get(`GET URL`)
+    AxiosWithAuth()
+      .get(`https://bw.stvsu.com/api/entries/${id}`)
       .then(res => {
         // res.data
         setEntry(res.data);
+        console.log(res.data)
       })
       .catch(err => console.log(err));
   }, [id]);
@@ -65,31 +57,30 @@ const EditEntry = (props) => {
       //     push("/sleep-entry-homepage");
       //   })
       //   .catch(err => console.log(err));
-
-      useEffect(() => {
+   
         AxiosWithAuth()
-          .put("https://bw.stvsu.com/api/entries/:id", entry)
+          .put(`https://bw.stvsu.com/api/entries/${id}`, entry)
           .then((res) => {
             console.log(res);
+            console.log(res.status)
+            history.push('/homepage')
+
           })
           .catch((err) => console.log(err.message));
-      }, []);
-  };
-
   };
 
   const deleteEntry = (e) => {
     e.preventDefault();
-      // axios
-      //   .delete(`GET URL`)
-      //   .then(res => {
-      //     // res.data
-      //     props.setEntries(res.data); //please send me the whole array again
-      //     push("/sleep-entry-homepage");
-      //   })
-      //   .catch(err => console.log(err));
+      AxiosWithAuth()
+        .delete(`https://bw.stvsu.com/api/entries/${id}`)
+        .then(res => {
+          // res.data
+          // props.setEntries(res.data); //please send me the whole array again
+          history.push('/homepage');
+        })
+        .catch(err => console.log(err));
   }
-
+  
   return (
     <div>
       <h2>Edit Entry</h2>
@@ -144,14 +135,6 @@ const EditEntry = (props) => {
           placeholder="sleepscore"
           value={entry.sleep_score_night}
         />
-       
-       <input
-          type="text"
-          name="user_id"
-          onChange={changeHandler}
-          placeholder="userId"
-          value={entry.user_id}
-        />
 
         <button type="submit">Save</button>
 
@@ -160,6 +143,6 @@ const EditEntry = (props) => {
       </form>
     </div>
   );
-};
+  };
 
 export default EditEntry;

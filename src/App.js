@@ -104,14 +104,15 @@ function App() {
       <Switch>
         {/* <Route exact path="/register" component={Form} /> */}
         
-        <PrivateRoute exact path="/homepage" component={SleepEntryHomePage} />
-        <PrivateRoute exact path="/editentry" component={EditEntry} />
+        <PrivateRoute path="/homepage" component={SleepEntryHomePage} />
+       
         <PrivateRoute exact path="/addentry" component={AddSleepEntry} />
-
+        <PrivateRoute path="/editentry/:id" component={EditEntry} />
         <Route exact path="/register" component={Form} />
         <Route exact path="/login" component={Signin} />
 
         <Route path="/" component={WelcomePage} />
+       
       </Switch>
 
       {/* <PrivateRoute exact path="/my" component={MainPage} />
