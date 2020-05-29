@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Form from "./Components/Form";
 import SleepEntryHomePage from "./Components/SleepEntryHomePage";
 import EditEntry from "./Components/EditEntry";
 import AddSleepEntry from "./Components/AddSleepEntry";
@@ -9,6 +8,7 @@ import WelcomePage from "./Components/WelcomePage";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Signin from "./Components/SignIn";
+import Signup from "./Components/Signup";
 import PrivateRoute from "./Components/PrivateRoute";
 
 // state data for sleep graph
@@ -108,7 +108,7 @@ function App() {
        
         <PrivateRoute exact path="/addentry" component={AddSleepEntry} />
         <PrivateRoute path="/editentry/:id" component={EditEntry} />
-        <Route exact path="/register" component={Form} />
+        <Route exact path="/register" component={Signup} />
         <Route exact path="/login" component={Signin} />
 
         <Route path="/" component={WelcomePage} />
