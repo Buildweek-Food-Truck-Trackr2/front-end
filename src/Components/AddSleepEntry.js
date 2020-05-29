@@ -78,6 +78,7 @@ export default function AddSleepEntry() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(AddSleepEntry);
     axios
       .post("https://bw.stvsu.com", entry)
       .then((response) => {})
