@@ -60,7 +60,7 @@ const AddSleepEntry = (props) => {
 
     return (
       <div>
-        <h2>Edit Entry</h2>
+        <h2>Add New Entry</h2>
         <form onSubmit={handleSubmit}>
   
           <h1>Sleep Start</h1>
@@ -80,7 +80,7 @@ const AddSleepEntry = (props) => {
             value={entry.sleep_start}
           />
          
-  
+          <h1>Sleep End</h1>
           <input
             type="time"
             name="sleep_end"
@@ -93,7 +93,7 @@ const AddSleepEntry = (props) => {
             type="text"
             name="sleep_score_morning"
             onChange={changeHandler}
-            placeholder="mood"
+            placeholder="sleep mood morning"
             value={entry.sleep_score_morning}
           />
          
@@ -101,7 +101,7 @@ const AddSleepEntry = (props) => {
             type="text"
             name="sleep_score_day"
             onChange={changeHandler}
-            placeholder="mood"
+            placeholder="sleep mood day"
             value={entry.sleep_score_day}
           />
          
@@ -109,7 +109,7 @@ const AddSleepEntry = (props) => {
             type="text"
             name="sleep_score_night"
             onChange={changeHandler}
-            placeholder="sleepscore"
+            placeholder="sleep mood night"
             value={entry.sleep_score_night}
           />
   
