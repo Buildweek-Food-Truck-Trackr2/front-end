@@ -112,6 +112,7 @@ function App() {
         <Route exact path="/login" component={Signin} />
 
         <Route path="/welcome" component={WelcomePage} />
+        <Route path="/" component={WelcomePage} />
        
       </Switch>
 
