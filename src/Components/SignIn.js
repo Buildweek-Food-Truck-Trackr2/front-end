@@ -35,7 +35,7 @@ export default function SignIn(props) {
   if (loads === true) {
     return (
       <div>
-        <div> Oops! Try again! </div>
+        <div> Loading... </div>
       </div>
     );
   } else {

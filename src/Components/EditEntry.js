@@ -103,7 +103,7 @@ const EditEntry = (props) => {
           value={entry.sleep_start}
         />
        
-
+        <h1>Sleep End</h1>
         <input
           type="time"
           name="sleep_end"

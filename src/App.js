@@ -111,7 +111,7 @@ function App() {
         <Route exact path="/register" component={Signup} />
         <Route exact path="/login" component={Signin} />
 
-        <Route path="/" component={WelcomePage} />
+        <Route path="/welcome" component={WelcomePage} />
        
       </Switch>
 
